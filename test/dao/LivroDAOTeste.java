@@ -15,7 +15,7 @@ import entities.Livro;
 public class LivroDAOTeste {
 
 	@Disabled
-	void cadastrarCursoTeste() throws SQLException, IOException {
+	void cadastrarLivroTeste() throws SQLException, IOException {
 
 		Livro livro = new Livro();
 		
@@ -31,7 +31,7 @@ public class LivroDAOTeste {
 	}
 	
 	@Test
-	void buscarTodosCursosTeste() throws SQLException, IOException {
+	void buscarTodosLivrosTeste() throws SQLException, IOException {
 
 		Connection conn = BancoDados.conectar();
 		List<Livro> listaLivros = new LivroDAO(conn).buscarTodos();
@@ -40,19 +40,19 @@ public class LivroDAOTeste {
 	}
 	
 	@Test
-	void buscarPorCodigoCursosTeste() throws SQLException, IOException {
+	void buscarPorCodigoLivroTeste() throws SQLException, IOException {
 
-		int codigoCurso = 3;
+		int idLivro = 3;
 
 		Connection conn = BancoDados.conectar();
-		Livro livro = new LivroDAO(conn).buscarPorCodigo(codigoCurso);
+		Livro livro = new LivroDAO(conn).buscarPorCodigo(idLivro);
 
 		assertNotNull(livro);
 		assertEquals("UML - Guia do Usuário", livro.getTitulo());
 	}
 	
 	@Disabled
-	void atualizarCursoTeste() throws SQLException, IOException {
+	void atualizarLivroTeste() throws SQLException, IOException {
 
 		Livro livro = new Livro();
 		
@@ -69,7 +69,7 @@ public class LivroDAOTeste {
 	}
 	
 	@Disabled
-	void excluirCursoTeste() throws SQLException, IOException {
+	void excluirLivroTeste() throws SQLException, IOException {
 
 		int idLivro = 2;
 

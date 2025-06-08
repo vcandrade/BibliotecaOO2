@@ -24,8 +24,7 @@ public class LivroDAO {
 
 		try {
 
-			st = conn.prepareStatement(
-					"insert into livro (titulo, autorPrincipal, anoPublicacao, numeroPaginas) values (?, ?, ?, ?)");
+			st = conn.prepareStatement("insert into livro (titulo, autorPrincipal, anoPublicacao, numeroPaginas) values (?, ?, ?, ?)");
 
 			st.setString(1, livro.getTitulo());
 			st.setString(2, livro.getAutorPrincipal());
