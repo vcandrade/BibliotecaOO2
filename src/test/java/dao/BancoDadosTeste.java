@@ -1,8 +1,10 @@
-package br.edu.utfpr.oo2.biblioteca.dao;
+package dao;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import dao.BancoDados;
 
 public class BancoDadosTeste {
 

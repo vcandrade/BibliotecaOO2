@@ -1,4 +1,4 @@
-package br.edu.utfpr.oo2.biblioteca.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.utfpr.oo2.biblioteca.entity.Livro;
+import dto.LivroDTO;
 
 public class LivroDAO {
 
@@ -18,7 +18,7 @@ public class LivroDAO {
 		this.conn = conn;
 	}
 
-	public int cadastrar(Livro livro) throws SQLException {
+	public int cadastrar(LivroDTO livro) throws SQLException {
 
 		PreparedStatement st = null;
 
@@ -40,7 +40,7 @@ public class LivroDAO {
 		}
 	}
 
-	public List<Livro> buscarTodos() throws SQLException {
+	public List<LivroDTO> buscarTodos() throws SQLException {
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -51,11 +51,11 @@ public class LivroDAO {
 
 			rs = st.executeQuery();
 
-			List<Livro> listaLivros = new ArrayList<>();
+			List<LivroDTO> listaLivros = new ArrayList<>();
 
 			while (rs.next()) {
 
-				Livro livro = new Livro();
+				LivroDTO livro = new LivroDTO();
 
 				livro.setId(rs.getInt("id"));
 				livro.setTitulo(rs.getString("titulo"));
@@ -76,7 +76,7 @@ public class LivroDAO {
 		}
 	}
 
-	public Livro buscarPorCodigo(int idLivro) throws SQLException {
+	public LivroDTO buscarPorCodigo(int idLivro) throws SQLException {
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -91,7 +91,7 @@ public class LivroDAO {
 
 			if (rs.next()) {
 
-				Livro livro = new Livro();
+				LivroDTO livro = new LivroDTO();
 
 				livro.setId(rs.getInt("id"));
 				livro.setTitulo(rs.getString("titulo"));
@@ -112,7 +112,7 @@ public class LivroDAO {
 		}
 	}
 	
-	public int atualizar(Livro livro) throws SQLException {
+	public int atualizar(LivroDTO livro) throws SQLException {
 
 		PreparedStatement st = null;
 

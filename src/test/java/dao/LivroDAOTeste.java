@@ -1,17 +1,19 @@
-package br.edu.utfpr.oo2.biblioteca.dao;
+package dao;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.edu.utfpr.oo2.biblioteca.entity.Livro;
+import dao.BancoDados;
+import dao.LivroDAO;
+import dto.LivroDTO;
 
 public class LivroDAOTeste {
 
 	public static void cadastrarLivroTeste() throws SQLException, IOException {
 
-		Livro livro = new Livro();
+		LivroDTO livro = new LivroDTO();
 		
 		livro.setTitulo("UML - Guia do Usuário");
 		livro.setAutorPrincipal("Grady Grady Booch");
@@ -34,7 +36,7 @@ public class LivroDAOTeste {
 	public static void buscarTodosLivrosTeste() throws SQLException, IOException {
 
 		Connection conn = BancoDados.conectar();
-		List<Livro> listaLivros = new LivroDAO(conn).buscarTodos();
+		List<LivroDTO> listaLivros = new LivroDAO(conn).buscarTodos();
 		
 		if (listaLivros.isEmpty()) {
 			
@@ -42,7 +44,7 @@ public class LivroDAOTeste {
 			return;
 		}
 		
-		for (Livro livro : listaLivros) {
+		for (LivroDTO livro : listaLivros) {
 			
 			System.out.println(livro);
 		}
@@ -53,7 +55,7 @@ public class LivroDAOTeste {
 		int idLivro = 3;
 
 		Connection conn = BancoDados.conectar();
-		Livro livro = new LivroDAO(conn).buscarPorCodigo(idLivro);
+		LivroDTO livro = new LivroDAO(conn).buscarPorCodigo(idLivro);
 		
 		if (livro != null) {
 
@@ -67,7 +69,7 @@ public class LivroDAOTeste {
 
 	public static void atualizarLivroTeste() throws SQLException, IOException {
 
-		Livro livro = new Livro();
+		LivroDTO livro = new LivroDTO();
 		
 		livro.setId(4);
 		livro.setTitulo("Engenharia de Software");

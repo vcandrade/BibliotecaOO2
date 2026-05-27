@@ -1,6 +1,6 @@
-package br.edu.utfpr.oo2.biblioteca.entity;
+package dto;
 
-public class Livro {
+public class LivroDTO {
 
 	private int id;
 	private String titulo;
@@ -8,11 +8,11 @@ public class Livro {
 	private int anoPublicacao;
 	private int numeroPaginas;
 	
-	public Livro() {
+	public LivroDTO() {
 	
 	}
 
-	public Livro(int id, String titulo, String autorPrincipal, int anoPublicacao, int numeroPaginas) {
+	public LivroDTO(int id, String titulo, String autorPrincipal, int anoPublicacao, int numeroPaginas) {
 		
 		this.id = id;
 		this.titulo = titulo;
